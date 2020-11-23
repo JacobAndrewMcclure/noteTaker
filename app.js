@@ -14,12 +14,15 @@ let buttTextNode;
 let paraTextNode;
 
 let noteCounter = 1;
+let noteHistory = [];
 
 function addNote() {
     //assigns new note to variable
     userNote = document.getElementById("newNote").value;
     //clears note field
     document.getElementById("newNote").value = "";
+    //assigns user note to note history
+    noteHistory[noteCounter] = userNote;
     //create elements
     headNode = document.createElement("H6");
     paraNode = document.createElement("P");
@@ -29,13 +32,12 @@ function addNote() {
     paraTextNode = document.createTextNode(userNote);
     //assign text to button & paragraph
     headTextNode = document.createTextNode("Note " + noteCounter);
-    buttTextNode = document.createTextNode("Preview")
-
+    buttTextNode = document.createTextNode("Preview");
     //when user clicks the button open modal
     buttNode.onclick = function() {
         modal.style.display = "block";
+        //document.getElementById("modalText").innerHTML = noteHistory[?];
     }
-    
     //append text nodes to elements
     headNode.appendChild(headTextNode);
     paraNode.appendChild(paraTextNode);
@@ -50,11 +52,14 @@ function addNote() {
     document.getElementById("noteListContainer").appendChild(userNoteNode);
     //add 1 to note counter
     noteCounter++;
+
+    console.log(noteHistory)
 }
 
 //when user clicks x on modal
 span.onclick = function() {
     modal.style.display = "none";
+
 }
 //user clicks outside of modal to close
 window.onclick = function(event) {
