@@ -34,9 +34,19 @@ function addNote() {
     headTextNode = document.createTextNode("Note " + noteCounter);
     buttTextNode = document.createTextNode("Preview");
     //when user clicks the button open modal
-    buttNode.onclick = function() {
+    buttNode.onclick = function(event) {
+        //display modal
         modal.style.display = "block";
-        //document.getElementById("modalText").innerHTML = noteHistory[?];
+        //assign event to x
+        let x = event.target;
+        //assign parent of event to y
+        let y = x.parentElement;
+        //assigns children of parent node
+        let z = y.childNodes;
+        //assigns text of nodelist index to variable
+        let displayNote = z[1].innerHTML;
+        //displays text in modal
+        document.getElementById("modalText").innerHTML = displayNote;
     }
     //append text nodes to elements
     headNode.appendChild(headTextNode);
@@ -52,8 +62,6 @@ function addNote() {
     document.getElementById("noteListContainer").appendChild(userNoteNode);
     //add 1 to note counter
     noteCounter++;
-
-    console.log(noteHistory)
 }
 
 //when user clicks x on modal
