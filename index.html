@@ -8,13 +8,15 @@
 </head>
 <body>
     <h1>Note Taker</h1>
-    <h5>Add A New Note</h5>
-
-    <label for="note">Note:</label>
-    <input type="text" id="newNote">
-    <br>
-
-    <input type="button" value="Add Note" onclick="addNote()" id="modalBtn">
+    <h5>Add A New Note:</h5>
+    <div class="inputControls">
+        <label for="note" id="textLabel">Note:</label>
+        <input type="text" id="newNote">
+        <br>
+    </div>
+    <div id="modalBtnContainer">
+        <input type="button" value="Add Note" onclick="addNote()" id="modalBtn">
+    </div>
     <!-- The modal-->
     <div id="myModal" class="modal">
         <!-- Modal content-->
@@ -26,28 +28,6 @@
     <br>
 
     <div id="noteListContainer">
-        <!--
-        <div class="newUserNote">
-            <h6>Note 1</h6>
-            <p>User notes</p>
-            <input type="button" value="preview">
-        </div>
-        <div class="newUserNote">
-            <h6>Note 2</h6>
-            <p>User notes</p>
-            <input type="button" value="preview">
-        </div>
-        <div class="newUserNote">
-            <h6>Note 3</h6>
-            <p>User notes</p>
-            <input type="button" value="preview">
-        </div>
-        <div class="newUserNote">
-            <h6>Note 4</h6>
-            <p>User notes</p>
-            <input type="button" value="preview">
-        </div>
-    -->
     </div>
     
     <script src="app.js"></script>

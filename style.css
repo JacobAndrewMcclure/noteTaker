@@ -1,5 +1,42 @@
 h1 {
+    font-size: 2.5em;
     text-align: center;
+    color: chartreuse;
+    text-shadow: 4px 4px 8px black;
+}
+h5 {
+    font-size: 1.2em;
+    text-align: center;
+}
+h6 {
+    font-size: 1em;
+    color: chartreuse;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-left: 2.5%;
+    margin-top: 5px;
+}
+#textLabel {
+    font-size: 1.2em;
+}
+.inputControls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#modalBtnContainer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+#modalBtn {
+    font-size: 1em;
+    height: 50px;
+    width: 100px;
+    background-color: chartreuse;
+}
+#newNote {
+    width: 60%;
+    height: 30px;
 }
 #noteListContainer {
     display: flex;
@@ -9,6 +46,9 @@ h1 {
 .newUserNote {
     width: 400px;
     padding: 20px;
+}
+.previewButt{
+    background-color: chartreuse;
 }
 /*modal (background)*/
 .modal {
