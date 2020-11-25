@@ -8,28 +8,36 @@ let span = document.getElementsByClassName("close")[0];
 let headNode;
 let paraNode;
 let buttNode;
+let shortNode;
 let headTextNode;
 let userNoteNode;
 let buttTextNode;
 let paraTextNode;
+let shortTextNode;
 
 let noteCounter = 1;
-let noteHistory = [];
+let shortText;
 
 function addNote() {
     //assigns new note to variable
     userNote = document.getElementById("newNote").value;
     //clears note field
     document.getElementById("newNote").value = "";
-    //assigns user note to note history
-    noteHistory[noteCounter] = userNote;
     //create elements
     headNode = document.createElement("H6");
     paraNode = document.createElement("P");
+    shortNode = document.createElement("P");
     buttNode = document.createElement("BUTTON");
     userNoteNode = document.createElement("DIV");
-    //assign user note to p element
+    //short hand display text
+    if (userNote.length > 100) {
+        shortText = userNote.substring(0, 99) + "....";
+    } else {
+        shortText = userNote;
+    }
+    //assign user note to p elements
     paraTextNode = document.createTextNode(userNote);
+    shortTextNode = document.createTextNode(shortText);
     //assign text to button & paragraph
     headTextNode = document.createTextNode("Note " + noteCounter);
     buttTextNode = document.createTextNode("Preview");
@@ -51,10 +59,14 @@ function addNote() {
     //append text nodes to elements
     headNode.appendChild(headTextNode);
     paraNode.appendChild(paraTextNode);
+    shortNode.appendChild(shortTextNode);
     buttNode.appendChild(buttTextNode);
+    //hide user input
+    paraNode.style.display = "none";
     //append elements to DIV
     userNoteNode.appendChild(headNode);
     userNoteNode.appendChild(paraNode);
+    userNoteNode.appendChild(shortNode);
     userNoteNode.appendChild(buttNode);
     //add class to new div
     userNoteNode.classList.add("newUserNote");
